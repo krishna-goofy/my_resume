@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Krishna Malhotra - Portfolio & Resume</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --accent-color: #3b82f6;
+        --text-color: #1f2937;
+        --light-bg: #f3f4f6;
+        --card-bg: #ffffff;
+        --transition: all 0.3s ease;
+      }
+
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: var(--light-bg);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      /* Header Styles */
+      .header {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
+        opacity: 0.1;
+      }
+
+      .header h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      }
+
+      .header p {
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+
+      /* Navigation */
+      .navbar {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      }
+
+      .nav-link {
+        color: var(--text-color);
+        font-weight: 500;
+        padding: 0.5rem 1rem;
+        transition: var(--transition);
+      }
+
+      .nav-link:hover {
+        color: var(--primary-color);
+      }
+
+      /* Content Sections */
+      .content-section {
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 2.5rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: var(--transition);
+      }
+
+      .content-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      }
+
+      .section-title {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+      }
+
+      /* Skills Grid */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .skill-card {
+        background: var(--light-bg);
+        padding: 1.5rem;
+        border-radius: 10px;
+        transition: var(--transition);
+      }
+
+      .skill-card:hover {
+        background: var(--primary-color);
+        color: white;
+      }
+
+      /* Project Cards */
+      .project-card {
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .project-card .card-body {
+        padding: 1.5rem;
+      }
+
+      /* Timeline */
+      .timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--primary-color);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-bottom: 2rem;
+      }
+
+      .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -2.5rem;
+        top: 0;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background: var(--primary-color);
+      }
+
+      /* Contact Section */
+      .contact-info {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .contact-info i {
+        width: 40px;
+        height: 40px;
+        background: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--text-color);
+        color: white;
+        padding: 3rem 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header {
+          padding: 60px 0;
+        }
+
+        .header h1 {
+          font-size: 2.5rem;
+        }
+
+        .content-section {
+          padding: 1.5rem;
+        }
+      }
+
+      /* Animations */
+      [data-aos] {
+        pointer-events: none;
+      }
+
+      [data-aos].aos-animate {
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">KM</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header" id="about">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8" data-aos="fade-right">
+            <h1>Krishna Malhotra</h1>
+            <p class="lead">Full Stack Developer & AI Enthusiast</p>
+            <p>BCA Student at Maharaja Surajmal Institute | New Delhi, India</p>
+            <div class="mt-4">
+              <a href="mailto:km232820@gmail.com" class="btn btn-light me-3">
+                <i class="fas fa-envelope me-2"></i>Contact Me
+              </a>
+              <a href="tel:+918851172073" class="btn btn-outline-light">
+                <i class="fas fa-phone me-2"></i>Call Me
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-4" data-aos="fade-left">
+            <div class="text-center">
+              <img src="https://via.placeholder.com/300" alt="Profile" class="img-fluid rounded-circle shadow-lg" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+      <!-- Summary Section -->
+      <section id="summary" class="content-section" data-aos="fade-up">
+        <h2 class="section-title">Professional Summary</h2>
+        <p class="lead">
+          Dedicated BCA student with a robust foundation in web development, data visualization, and AI integration. 
+          Proven experience in designing user-centric applications, managing full-stack projects, and implementing 
+          innovative technological solutions.
+        </p>
+        <div class="row mt-4">
+          <div class="col-md-4">
+            <div class="text-center">
+              <i class="fas fa-code fa-3x text-primary mb-3"></i>
+              <h4>Web Development</h4>
+              <p>Full-stack development with modern frameworks</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="text-center">
+              <i class="fas fa-brain fa-3x text-primary mb-3"></i>
+              <h4>AI & Machine Learning</h4>
+              <p>Integration of AI solutions and chatbots</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="text-center">
+              <i class="fas fa-mobile-alt fa-3x text-primary mb-3"></i>
+              <h4>IoT Development</h4>
+              <p>Smart solutions and automation systems</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section id="experience" class="content-section" data-aos="fade-up">
+        <h2 class="section-title">Experience</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <h4>Web Development & AI Intern</h4>
+            <h5>Bretton Woods Finlease Limited</h5>
+            <p class="text-muted">May 2024 – Jun 2024</p>
+            <ul>
+              <li>Developed and maintained web applications using modern frameworks</li>
+              <li>Integrated AI solutions for enhanced user experience</li>
+              <li>Collaborated with cross-functional teams on project delivery</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <h4>Data Visualization & Front-End Development Intern</h4>
+            <h5>Behtar Zindagi Pvt. Ltd.</h5>
+            <p class="text-muted">Jul 2024 – Aug 2024</p>
+            <ul>
+              <li>Created interactive data visualizations using modern libraries</li>
+              <li>Implemented responsive front-end designs</li>
+              <li>Optimized application performance and user experience</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects" class="content-section" data-aos="fade-up">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h4>AI-Powered College Chatbot</h4>
+                <p class="text-muted">Google Gemini, Flask, BeautifulSoup</p>
+                <p>Intelligent chatbot leveraging AI and web scraping for college-related queries. Features include dynamic response generation, context awareness, and seamless integration with college databases.</p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">AI</span>
+                  <span class="badge bg-primary me-2">Flask</span>
+                  <span class="badge bg-primary">Web Scraping</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h4>Threat Recognition System</h4>
+                <p class="text-muted">Flask, OpenCV, YOLO, Keras</p>
+                <p>Real-time security system using ML for violence and weapon detection. Implements automated alerts, incident logging, and emergency response coordination.</p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">ML</span>
+                  <span class="badge bg-primary me-2">Computer Vision</span>
+                  <span class="badge bg-primary">Security</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h4>Attendance Management System</h4>
+                <p class="text-muted">ESP8266, Arduino, Flask</p>
+                <p>IoT-based system integrating fingerprint authentication and real-time attendance tracking. Features include automated reporting, mobile notifications, and cloud synchronization.</p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">IoT</span>
+                  <span class="badge bg-primary me-2">Arduino</span>
+                  <span class="badge bg-primary">Flask</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h4>College Study Material Portal</h4>
+                <p class="text-muted">Flask, Flask-SQLAlchemy, Bootstrap</p>
+                <p>Comprehensive web portal for efficient management and dissemination of study materials. Features include role-based access control, search functionality, and document versioning.</p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">Full Stack</span>
+                  <span class="badge bg-primary me-2">Database</span>
+                  <span class="badge bg-primary">Bootstrap</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h4>Department of Justice Chatbot</h4>
+                <p class="text-muted">Flask, Google Gemini, SQLite</p>
+                <p>NLP-based chatbot designed to deliver real-time responses by integrating web scraping techniques with database management. Provides accurate legal information and case status updates.</p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">NLP</span>
+                  <span class="badge bg-primary me-2">AI</span>
+                  <span class="badge bg-primary">Database</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h4>Home Automation System</h4>
+                <p class="text-muted">Python, Tkinter, Voice Recognition</p>
+                <p>Innovative smart home solution featuring a graphical interface for voice-controlled appliance management. Includes energy monitoring, scheduling, and remote access capabilities.</p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">IoT</span>
+                  <span class="badge bg-primary me-2">Python</span>
+                  <span class="badge bg-primary">Voice Control</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h4>Social Media Application</h4>
+                <p class="text-muted">Flask, Flask-Login, SQLAlchemy, MoviePy, Ngrok</p>
+                <p>Full-fledged social media platform featuring secure user authentication, multimedia uploads, video processing, and search functionality based on an MVC architecture.</p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">Full Stack</span>
+                  <span class="badge bg-primary me-2">Security</span>
+                  <span class="badge bg-primary">Media Processing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h4>AI Fashion Designing Application</h4>
+                <p class="text-muted">Flask, Diffusers, Google Colab, Pyngrok, OpenCV</p>
+                <p>AI-driven application that integrates an inpainting pipeline for artistic fashion design. Combines a Colab backend with a modern web interface for image processing and transformation.</p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">AI</span>
+                  <span class="badge bg-primary me-2">Computer Vision</span>
+                  <span class="badge bg-primary">Web App</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="card project-card h-100">
+              <div class="card-body">
+                <h4>Property Builder Projects Web App</h4>
+                <p class="text-muted">Python Flask, SQLAlchemy, Bootstrap</p>
+                <p>Full-stack web application for displaying Property builder projects with multimedia uploads, dynamic project pages, and robust database integration.</p>
+                <div class="mt-3">
+                  <span class="badge bg-primary me-2">Full Stack</span>
+                  <span class="badge bg-primary me-2">Database</span>
+                  <span class="badge bg-primary">Bootstrap</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills" class="content-section" data-aos="fade-up">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <h4><i class="fas fa-code me-2"></i>Programming</h4>
+            <ul class="list-unstyled">
+              <li>Python (Advanced)</li>
+              <li>JavaScript (Intermediate)</li>
+              <li>SQL (Advanced)</li>
+              <li>HTML/CSS (Advanced)</li>
+              <li>C++ (Basic)</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4><i class="fas fa-layer-group me-2"></i>Frameworks & Libraries</h4>
+            <ul class="list-unstyled">
+              <li>Flask</li>
+              <li>SQLAlchemy</li>
+              <li>Bootstrap</li>
+              <li>BeautifulSoup</li>
+              <li>Tesseract OCR</li>
+              <li>MoviePy</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4><i class="fas fa-robot me-2"></i>AI & ML</h4>
+            <ul class="list-unstyled">
+              <li>Google Gemini API</li>
+              <li>Chatbot Development</li>
+              <li>Computer Vision</li>
+              <li>OpenCV</li>
+              <li>YOLO</li>
+              <li>Keras</li>
+            </ul>
+          </div>
+          <div class="skill-card">
+            <h4><i class="fas fa-microchip me-2"></i>IoT & Hardware</h4>
+            <ul class="list-unstyled">
+              <li>ESP8266</li>
+              <li>Arduino</li>
+              <li>IR Communication</li>
+              <li>Sensor Integration</li>
+              <li>Circuit Design</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="content-section" data-aos="fade-up">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="contact-info">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h5>Email</h5>
+                <p>km232820@gmail.com</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h5>Phone</h5>
+                <p>+91 8871172073</p>
+              </div>
+            </div>
+            <div class="contact-info">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h5>Location</h5>
+                <p>New Delhi, India</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <form action="https://formsubmit.co/km232820@gmail.com" method="POST">
+              <div class="mb-3">
+                <input type="text" name="name" class="form-control" placeholder="Your Name" required />
+              </div>
+              <div class="mb-3">
+                <input type="email" name="email" class="form-control" placeholder="Your Email" required />
+              </div>
+              <div class="mb-3">
+                <textarea name="message" class="form-control" rows="4" placeholder="Your Message" required></textarea>
+              </div>
+              <input type="hidden" name="_subject" value="New Portfolio Contact!">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_next" value="https://yourdomain.com/thanks.html">
+              <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Krishna Malhotra</h4>
+            <p>Full Stack Developer & AI Enthusiast</p>
+          </div>
+          <div class="col-md-6 text-md-end">
+            <div class="social-links">
+              <a href="#" class="text-white me-3"><i class="fab fa-github"></i></a>
+              <a href="#" class="text-white me-3"><i class="fab fa-linkedin"></i></a>
+              <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+        <hr class="mt-4 mb-4" />
+        <div class="text-center">
+          <p>&copy; 2025 Krishna Malhotra. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true
+      });
+
+      // Smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
+        });
+      });
+
+      // Navbar scroll effect
+      window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+          navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+          navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+        } else {
+          navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+          navbar.style.boxShadow = 'none';
+        }
+      });
+    </script>
+  </body>
+</html> 
