@@ -24,6 +24,11 @@
         --light-bg: #f3f4f6;
         --card-bg: #ffffff;
         --transition: all 0.3s ease;
+        --gradient-1: linear-gradient(135deg, #2563eb, #1e40af);
+        --gradient-2: linear-gradient(135deg, #3b82f6, #2563eb);
+        --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+        --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+        --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
       }
 
       body {
@@ -35,9 +40,8 @@
 
       /* Header Styles */
       .header {
-        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-        color: white;
-        padding: 100px 0;
+        background: var(--gradient-1);
+        padding: 120px 0;
         position: relative;
         overflow: hidden;
       }
@@ -51,6 +55,12 @@
         bottom: 0;
         background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
         opacity: 0.1;
+        animation: patternMove 20s linear infinite;
+      }
+
+      @keyframes patternMove {
+        0% { background-position: 0 0; }
+        100% { background-position: 100px 100px; }
       }
 
       .header h1 {
@@ -86,16 +96,17 @@
       /* Content Sections */
       .content-section {
         background: var(--card-bg);
-        border-radius: 15px;
+        border-radius: 20px;
         padding: 2.5rem;
         margin-bottom: 2rem;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        box-shadow: var(--shadow-md);
         transition: var(--transition);
+        border: 1px solid rgba(0,0,0,0.05);
       }
 
       .content-section:hover {
         transform: translateY(-5px);
-        box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        box-shadow: var(--shadow-lg);
       }
 
       .section-title {
@@ -231,6 +242,83 @@
 
       [data-aos].aos-animate {
         pointer-events: auto;
+      }
+
+      /* Education Timeline */
+      .education-timeline {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .education-timeline::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--gradient-2);
+      }
+
+      .education-item {
+        position: relative;
+        padding-bottom: 2rem;
+        padding-left: 2rem;
+      }
+
+      .education-item::before {
+        content: '';
+        position: absolute;
+        left: -0.5rem;
+        top: 0;
+        width: 1.5rem;
+        height: 1.5rem;
+        border-radius: 50%;
+        background: var(--gradient-2);
+        border: 3px solid white;
+        box-shadow: var(--shadow-sm);
+      }
+
+      /* Certification Cards */
+      .certification-card {
+        background: var(--light-bg);
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        transition: var(--transition);
+        border: 1px solid rgba(0,0,0,0.05);
+      }
+
+      .certification-card:hover {
+        transform: translateX(10px);
+        background: var(--gradient-1);
+        color: white;
+      }
+
+      /* Activity Cards */
+      .activity-card {
+        background: var(--light-bg);
+        border-radius: 15px;
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+        transition: var(--transition);
+      }
+
+      .activity-card:hover {
+        transform: scale(1.02);
+        box-shadow: var(--shadow-md);
+      }
+
+      .activity-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--gradient-2);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-bottom: 1rem;
       }
     </style>
   </head>
@@ -530,6 +618,143 @@
               <li>Sensor Integration</li>
               <li>Circuit Design</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education" class="content-section" data-aos="fade-up">
+        <h2 class="section-title">Education</h2>
+        <div class="education-timeline">
+          <div class="education-item">
+            <h4>Bachelor of Computer Applications (BCA)</h4>
+            <h5>Maharaja Surajmal Institute, Janakpuri, New Delhi</h5>
+            <p class="text-muted">2022 - Present (3rd Year)</p>
+            <ul>
+              <li>Specializing in Web Development and AI Integration</li>
+              <li>Active member of Technical Society</li>
+              <li>Participated in various hackathons and technical events</li>
+              <li>Maintained strong academic performance</li>
+            </ul>
+          </div>
+          <div class="education-item">
+            <h4>Senior Secondary Education (XII)</h4>
+            <h5>Salwan Public School, Rajendra Nagar, New Delhi</h5>
+            <p class="text-muted">2020 - 2022</p>
+            <ul>
+              <li>Computer Science with Mathematics</li>
+              <li>Active participant in technical competitions</li>
+              <li>Member of School's Technical Club</li>
+            </ul>
+          </div>
+          <div class="education-item">
+            <h4>Secondary Education (X)</h4>
+            <h5>Salwan Public School, Rajendra Nagar, New Delhi</h5>
+            <p class="text-muted">2018 - 2020</p>
+            <ul>
+              <li>Science with Mathematics</li>
+              <li>Participated in various science exhibitions</li>
+              <li>Active member of Science Club</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications Section -->
+      <section id="certifications" class="content-section" data-aos="fade-up">
+        <h2 class="section-title">Certifications & Achievements</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="certification-card">
+              <h4><i class="fas fa-certificate me-2"></i>Communifiesta: The Art of Communication</h4>
+              <p class="text-muted">November 2023</p>
+              <p>Mastered advanced communication techniques and public speaking skills</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="certification-card">
+              <h4><i class="fas fa-certificate me-2"></i>Personalise: Unlocking Your Full Potential</h4>
+              <p class="text-muted">October 2023</p>
+              <p>Workshop focused on personal development and leadership skills</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="certification-card">
+              <h4><i class="fas fa-award me-2"></i>Editorial Board Member - Creation 2023</h4>
+              <p class="text-muted">2023</p>
+              <p>Led content creation and editorial decisions for the annual magazine</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="certification-card">
+              <h4><i class="fas fa-trophy me-2"></i>Smart India Hackathon (Internal)</h4>
+              <p class="text-muted">September 2024</p>
+              <p>Participated in the prestigious national-level hackathon</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="certification-card">
+              <h4><i class="fas fa-medal me-2"></i>Youth4Future Hackathon (Organizer)</h4>
+              <p class="text-muted">August 2024</p>
+              <p>Successfully organized and managed a major technical event</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="certification-card">
+              <h4><i class="fas fa-certificate me-2"></i>BuildwithIndia Finale at Google Office</h4>
+              <p class="text-muted">2024</p>
+              <p>Recognized among top 5,000 teams out of 25,000 participants</p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="certification-card">
+              <h4><i class="fas fa-award me-2"></i>Certificate of Appreciation - AVENSIS' 25</h4>
+              <p class="text-muted">January 2025</p>
+              <p>Awarded for outstanding contribution as Discipline Team member</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Activities Section -->
+      <section id="activities" class="content-section" data-aos="fade-up">
+        <h2 class="section-title">Extra-Curricular Activities</h2>
+        <div class="row">
+          <div class="col-md-6 mb-4">
+            <div class="activity-card">
+              <div class="activity-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <h4>Technical Society Member</h4>
+              <p>Active member of college technical society, organizing workshops and events</p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="activity-card">
+              <div class="activity-icon">
+                <i class="fas fa-laptop-code"></i>
+              </div>
+              <h4>Hackathon Organizer</h4>
+              <p>Organized Youth4Future Hackathon, managing teams and technical resources</p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="activity-card">
+              <div class="activity-icon">
+                <i class="fas fa-book"></i>
+              </div>
+              <h4>Editorial Board Member</h4>
+              <p>Led content creation and editorial decisions for Creation 2023 magazine</p>
+            </div>
+          </div>
+          <div class="col-md-6 mb-4">
+            <div class="activity-card">
+              <div class="activity-icon">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <h4>Workshop Coordinator</h4>
+              <p>Coordinated "Personalise" workshop on personal development</p>
+            </div>
           </div>
         </div>
       </section>
